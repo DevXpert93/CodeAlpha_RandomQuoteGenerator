@@ -34,7 +34,7 @@ export default function HomeScreen() {
       showToast("Removed from favorites");
     } else {
       saveQuote(quote);
-      showToast("Saved to favorites ❤️");
+      showToast("Saved to favorites");
     }
   };
 
@@ -92,7 +92,7 @@ export default function HomeScreen() {
                 <Ionicons name="sparkles" size={28} color={COLORS.primary} />
               </View>
               <Text className="text-white text-3xl font-bold tracking-wider">
-                Daily Quotes
+                Quote Spark
               </Text>
               <Text
                 className="text-sm mt-1"
@@ -212,7 +212,7 @@ export default function HomeScreen() {
 
           <View className="items-center mb-4">
             <Text className="text-white">
-              &copy; {new Date().getFullYear()} Daily Quotes. Made with ❤️ by{" "}
+              &copy; {new Date().getFullYear()} Quote Spark. Made with ❤️ by{" "}
               <Link href="https://adedotunoseni.vercel.app/">
                 <Text className="text-[#6C63FF]">DevXpert</Text>
               </Link>
