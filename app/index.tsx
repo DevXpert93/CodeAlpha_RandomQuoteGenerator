@@ -57,14 +57,12 @@ export default function HomeScreen() {
     }
 
     // Format the share message nicely
-    const shareMessage = `"${quote.text}"\n\n— ${quote.author}\n\nShared via Daily Quotes App`;
+    const shareMessage = `"${quote.text}"\n\n— ${quote.author}\n\nShared via Quote Spark`;
 
-    // expo-sharing shares FILES, so we convert text to a temp approach
-    // Instead we use React Native's built-in Share API for text sharing
     const { Share } = await import("react-native");
     await Share.share({
       message: shareMessage,
-      title: "Daily Quote",
+      title: "Quote Spark",
     });
   };
 

@@ -6,7 +6,8 @@ import "./global.css";
 export default function RootLayout() {
   return (
     <>
-      <Stack>
+      <Stack initialRouteName="splash">
+        <Stack.Screen name="splash" options={{ headerShown: false }} />
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="favorites" options={{ headerShown: false }} />
       </Stack>
