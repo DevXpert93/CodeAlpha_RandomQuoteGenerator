@@ -1,21 +1,23 @@
+import { useRouter } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
-import { View, Text } from "react-native";
+import { Image, View } from "react-native";
 import Animated, {
-  useSharedValue,
+  Easing,
   useAnimatedStyle,
+  useSharedValue,
+  withDelay,
   withSpring,
   withTiming,
-  withDelay,
-  Easing,
 } from "react-native-reanimated";
-import { useRouter } from "expo-router";
-import { Image } from "react-native";
 import { COLORS } from "../constants/theme";
 
-export default function SplashScreen() {
+// Keep native splash visible until we're ready
+SplashScreen.preventAutoHideAsync();
+
+export default function AnimatedSplash() {
   const router = useRouter();
 
-  // Animation values
   const iconScale = useSharedValue(0);
   const iconOpacity = useSharedValue(0);
   const titleOpacity = useSharedValue(0);
@@ -23,15 +25,14 @@ export default function SplashScreen() {
   const taglineOpacity = useSharedValue(0);
 
   useEffect(() => {
-    // Icon springs in first
-    iconScale.value = withSpring(1, {
-      damping: 12,
-      stiffness: 100,
-      mass: 0.8,
-    });
+    // Hide native splash immediately — show our custom one
+    SplashScreen.hideAsync();
+
+    // Icon springs in
+    iconScale.value = withSpring(1, { damping: 12, stiffness: 100 });
     iconOpacity.value = withTiming(1, { duration: 400 });
 
-    // Title fades in after icon
+    // Title slides up
     titleOpacity.value = withDelay(
       500,
       withTiming(1, { duration: 500, easing: Easing.out(Easing.ease) }),
@@ -41,13 +42,13 @@ export default function SplashScreen() {
       withSpring(0, { damping: 15, stiffness: 120 }),
     );
 
-    // Tagline fades in last
+    // Tagline fades in
     taglineOpacity.value = withDelay(
       900,
       withTiming(1, { duration: 500, easing: Easing.out(Easing.ease) }),
     );
 
-    // Navigate to home after 2.8 seconds
+    // Navigate to home
     const timer = setTimeout(() => {
       router.replace("/");
     }, 2800);
@@ -55,7 +56,6 @@ export default function SplashScreen() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Animated styles
   const iconStyle = useAnimatedStyle(() => ({
     opacity: iconOpacity.value,
     transform: [{ scale: iconScale.value }],
@@ -75,7 +75,6 @@ export default function SplashScreen() {
       className="flex-1 items-center justify-center"
       style={{ backgroundColor: COLORS.background }}
     >
-      {/* Sparkle Icon */}
       <Animated.View style={iconStyle} className="mb-6">
         <Image
           source={require("../assets/images/icon.png")}
@@ -83,7 +82,6 @@ export default function SplashScreen() {
         />
       </Animated.View>
 
-      {/* App Name */}
       <Animated.Text
         style={[
           titleStyle,
@@ -98,7 +96,6 @@ export default function SplashScreen() {
         Quote Spark
       </Animated.Text>
 
-      {/* Tagline */}
       <Animated.Text
         style={[
           taglineStyle,
