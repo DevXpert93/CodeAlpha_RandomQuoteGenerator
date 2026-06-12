@@ -6,10 +6,10 @@ import "./global.css";
 export default function RootLayout() {
   return (
     <>
-      <Stack initialRouteName="splash">
-        <Stack.Screen name="splash" options={{ headerShown: false }} />
+      <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="favorites" options={{ headerShown: false }} />
+        <Stack.Screen name="about" options={{ headerShown: false }} />
       </Stack>
       <StatusBar style="light" />
     </>

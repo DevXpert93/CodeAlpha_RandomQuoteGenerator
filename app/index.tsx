@@ -204,18 +204,16 @@ export default function HomeScreen() {
                   glowColor="rgba(255,255,255,0.06)"
                   onPress={() => router.push("/favorites")}
                 />
+
+                <SecondaryButton
+                  label="About"
+                  icon="information-circle-outline"
+                  color={COLORS.textSecondary}
+                  glowColor="rgba(255,255,255,0.06)"
+                  onPress={() => router.push("/about")}
+                />
               </View>
             )}
-          </View>
-
-          <View className="items-center mb-4">
-            <Text className="text-white">
-              &copy; {new Date().getFullYear()} Quote Spark. Made with ❤️ by{" "}
-              <Link href="https://adedotunoseni.vercel.app/">
-                <Text className="text-[#6C63FF]">DevXpert</Text>
-              </Link>
-              .
-            </Text>
           </View>
         </ScrollView>
 
