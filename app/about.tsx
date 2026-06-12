@@ -27,7 +27,6 @@ export default function AboutScreen() {
 
       <SafeAreaView className="flex-1">
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-          {/* Header */}
           <View className="flex-row items-center px-5 pt-6">
             <TouchableOpacity
               onPress={() => router.back()}
@@ -40,9 +39,7 @@ export default function AboutScreen() {
             <Text className="text-white text-xl font-bold ml-4">About</Text>
           </View>
 
-          {/* Content */}
           <View className="flex-1 items-center justify-center px-6 py-10">
-            {/* App Icon */}
             <View
               className="w-20 h-20 rounded-full items-center justify-center mb-6"
               style={{ backgroundColor: COLORS.glowPurple }}
@@ -50,7 +47,6 @@ export default function AboutScreen() {
               <Ionicons name="sparkles" size={36} color={COLORS.primary} />
             </View>
 
-            {/* App Name */}
             <Text className="text-white text-3xl font-bold">Quote Spark</Text>
 
             <Text
@@ -60,7 +56,6 @@ export default function AboutScreen() {
               Inspire your day
             </Text>
 
-            {/* Description */}
             <Text
               className="text-center text-sm leading-6 mb-10"
               style={{ color: COLORS.textSecondary }}
@@ -73,7 +68,6 @@ export default function AboutScreen() {
               and discover new perspectives anytime you open the app.
             </Text>
 
-            {/* Version */}
             <Text
               className="text-xs mb-6"
               style={{ color: COLORS.textSecondary }}
@@ -81,12 +75,17 @@ export default function AboutScreen() {
               Version 1.0.0
             </Text>
 
-            {/* Credit */}
+            <Text
+              className="text-xs mb-2"
+              style={{ color: COLORS.textSecondary }}
+            >
+              &copy; {new Date().getFullYear()} Quote Spark. All rights reserved.
+            </Text>
+
             <Text className="text-white text-sm mb-6">
               Made with ❤️ by DevXpert
             </Text>
 
-            {/* Button */}
             <TouchableOpacity
               onPress={openPortfolio}
               className="px-6 py-3 rounded-full"
