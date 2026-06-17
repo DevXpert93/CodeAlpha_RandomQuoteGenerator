@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import * as Clipboard from "expo-clipboard";
 import { LinearGradient } from "expo-linear-gradient";
-import { Link, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import * as Sharing from "expo-sharing";
 import {
   ActivityIndicator,
@@ -50,13 +50,11 @@ export default function HomeScreen() {
     const isAvailable = await Sharing.isAvailableAsync();
 
     if (!isAvailable) {
-      // Fallback to clipboard if sharing not available (e.g. emulator)
       await Clipboard.setStringAsync(`"${quote.text}" — ${quote.author}`);
       showToast("Copied! (Sharing not available)");
       return;
     }
 
-    // Format the share message nicely
     const shareMessage = `"${quote.text}"\n\n— ${quote.author}\n\nShared via Quote Spark`;
 
     const { Share } = await import("react-native");
@@ -217,7 +215,7 @@ export default function HomeScreen() {
           </View>
         </ScrollView>
 
-        {/* Toast notification — sits above everything */}
+        {/* Toast notification */}
         <Toast message={message} />
       </SafeAreaView>
     </View>

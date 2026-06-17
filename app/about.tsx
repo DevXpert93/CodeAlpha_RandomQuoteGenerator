@@ -83,7 +83,7 @@ export default function AboutScreen() {
             </Text>
 
             <Text className="text-white text-sm mb-6">
-              Made with ❤️ by DevXpert
+              Developed by DevXpert
             </Text>
 
             <TouchableOpacity
