@@ -79,11 +79,12 @@ export default function AboutScreen() {
               className="text-xs mb-2"
               style={{ color: COLORS.textSecondary }}
             >
-              &copy; {new Date().getFullYear()} Quote Spark. All rights reserved.
+              &copy; {new Date().getFullYear()} Quote Spark. All rights
+              reserved.
             </Text>
 
             <Text className="text-white text-sm mb-6">
-              Developed by DevXpert
+              Developed by Adedotun Oseni
             </Text>
 
             <TouchableOpacity
